@@ -4,8 +4,12 @@
 
 %Import QtCore/QtCoremod.sip
 %Import QtGui/QtGuimod.sip
+/**
 %Import QtXml/QtXmlmod.sip
+*/
 %Import QtNetwork/QtNetworkmod.sip
+
+/**
 
 %Include conversions.sip
 %Include qgsexception.sip
@@ -43,7 +47,10 @@
 %Include qgsmaptopixelgeometrysimplifier.sip
 %Include qgsgml.sip
 %Include qgsgmlschema.sip
-%Include qgshttptransaction.sip
+
+// TODO
+// %Include qgshttptransaction.sip
+
 %Include qgslabel.sip
 %Include qgslabelattributes.sip
 %Include qgslabelsearchtree.sip
@@ -252,3 +259,4 @@
 %Include symbology-ng/qgssymbologyv2conversion.sip
 
 %Include dxf/qgsdxfexport.sip
+*/

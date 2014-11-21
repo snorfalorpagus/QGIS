@@ -1,24 +1,25 @@
-# Find PyQt4
+# Find PyQt5
 # ~~~~~~~~~~
 # Copyright (c) 2007-2008, Simon Edwards <simon@simonzone.com>
+# Copyright (c) 2014, Joshua Arnott <josh@snorfalorpagus.net>
 # Redistribution and use is allowed according to the terms of the BSD license.
 # For details see the accompanying COPYING-CMAKE-SCRIPTS file.
 #
-# PyQt4 website: http://www.riverbankcomputing.co.uk/pyqt/index.php
+# PyQt5 website: http://www.riverbankcomputing.com/software/pyqt/intro
 #
-# Find the installed version of PyQt4. FindPyQt4 should only be called after
+# Find the installed version of PyQt5. FindPyQt5 should only be called after
 # Python has been found.
 #
 # This file defines the following variables:
 #
-# PYQT_VERSION - The version of PyQt4 found expressed as a 6 digit hex number
+# PYQT_VERSION - The version of PyQt5 found expressed as a 6 digit hex number
 #     suitable for comparision as a string
 #
-# PYQT_VERSION_STR - The version of PyQt4 as a human readable string.
+# PYQT_VERSION_STR - The version of PyQt5 as a human readable string.
 #
 # PYQT_VERSION_TAG - The PyQt version tag using by PyQt's sip files.
 #
-# PYQT_SIP_DIR - The directory holding the PyQt4 .sip files.
+# PYQT_SIP_DIR - The directory holding the PyQt5 .sip files.
 #
 # PYQT_SIP_FLAGS - The SIP flags used to build PyQt.
 
@@ -27,7 +28,7 @@ IF(EXISTS PYQT_VERSION)
   SET(PYQT_FOUND TRUE)
 ELSE(EXISTS PYQT_VERSION)
 
-  FIND_FILE(_find_pyqt_py FindPyQt.py PATHS ${CMAKE_MODULE_PATH})
+  FIND_FILE(_find_pyqt_py FindPyQt5.py PATHS ${CMAKE_MODULE_PATH})
 
   EXECUTE_PROCESS(COMMAND ${PYTHON_EXECUTABLE} ${_find_pyqt_py} OUTPUT_VARIABLE pyqt_config)
   IF(pyqt_config)
@@ -45,7 +46,7 @@ ELSE(EXISTS PYQT_VERSION)
 
   IF(PYQT_FOUND)
     IF(NOT PYQT_FIND_QUIETLY)
-      MESSAGE(STATUS "Found PyQt4 version: ${PYQT_VERSION_STR}")
+      MESSAGE(STATUS "Found PyQt version: ${PYQT_VERSION_STR}")
     ENDIF(NOT PYQT_FIND_QUIETLY)
   ELSE(PYQT_FOUND)
     IF(PYQT_FIND_REQUIRED)

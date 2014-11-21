@@ -187,9 +187,9 @@ class QgsComposerScaleBar: QgsComposerItem
      of the segment
      @note python bindings not available on android
      */
-%If (!ARM)
+// %If (!ARM)
     void segmentPositions( QList<QPair<double, double> >& posWidthList ) const;
-%End
+// %End
 
     /**Sets box size suitable to content*/
     void adjustBoxSize();

@@ -134,8 +134,13 @@ void QgsPythonUtilsImpl::initPython( QgisInterface* interface )
   }
 
   // import Qt bindings
+  #if QT_VERSION >= 0x050000
+  if ( !runString( "from PyQt5 import QtCore, QtGui",
+                   QObject::tr( "Couldn't load PyQt5." ) + "\n" + QObject::tr( "Python support will be disabled." ) ) )
+  #else
   if ( !runString( "from PyQt4 import QtCore, QtGui",
-                   QObject::tr( "Couldn't load PyQt4." ) + "\n" + QObject::tr( "Python support will be disabled." ) ) )
+      QObject::tr( "Couldn't load PyQt4." ) + "\n" + QObject::tr( "Python support will be disabled." ) ) )
+  #endif
   {
     exitPython();
     return;

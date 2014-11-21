@@ -53,8 +53,10 @@ class QgsProviderRegistry
         @param functionName name of function
         @return pointer to function or NULL on error
      */
-    void *function( const QString & providerKey,
-                    const QString & functionName );
+    /** TODO
+    QFunctionPointer *function( const QString & providerKey,
+                                const QString & functionName );
+    */
 
     QLibrary *providerLibrary( const QString & providerKey ) const;
 

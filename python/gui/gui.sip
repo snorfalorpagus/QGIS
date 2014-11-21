@@ -6,12 +6,15 @@
 
 %Import QtCore/QtCoremod.sip
 %Import QtGui/QtGuimod.sip
+/**
 %Import QtXml/QtXmlmod.sip
+*/
 
 %If (HAVE_QSCI_SIP)
 %Import Qsci/qscimod4.sip
 %End
 
+/**
 %Import core/core.sip
 
 %Include qgsblendmodecombobox.sip
@@ -181,3 +184,4 @@
 %Include editorwidgets/qgsspinbox.sip
 
 %Include layertree/qgslayertreeview.sip
+*/

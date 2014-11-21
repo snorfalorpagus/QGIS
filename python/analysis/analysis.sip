@@ -4,8 +4,11 @@
 
 %Import QtCore/QtCoremod.sip
 %Import QtGui/QtGuimod.sip
+/**
 %Import QtXml/QtXmlmod.sip
+*/
 
+/**
 %Import core/core.sip
 
 %Include vector/qgsgeometryanalyzer.sip
@@ -45,3 +48,4 @@
 %Include raster/qgsruggednessfilter.sip
 %Include raster/qgsslopefilter.sip
 %Include raster/qgstotalcurvaturefilter.sip
+*/

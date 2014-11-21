@@ -1,6 +1,7 @@
-# Macros for PyQt4
+# Macros for PyQt5
 # ~~~~~~~~~~~~~~~~
 # Copyright (c) 2009, Juergen E. Fischer <jef at norbit dot de>
+# Copyright (c) 2009, Joshua Arnott <josh@snorfalorpagus.net>
 # Redistribution and use is allowed according to the terms of the BSD license.
 # For details see the accompanying COPYING-CMAKE-SCRIPTS file.
 
@@ -8,11 +9,11 @@
 IF(NOT PYUIC_PROGRAM)
   IF (MSVC)
     FIND_PROGRAM(PYUIC_PROGRAM
-      NAMES pyuic4.bat
+      NAMES pyuic5.bat
       PATHS $ENV{LIB_DIR}/bin
     )
   ELSE(MSVC)
-    FIND_PROGRAM(PYUIC_PROGRAM NAMES python2-pyuic4 pyuic4 pyuic)
+    FIND_PROGRAM(PYUIC_PROGRAM NAMES python2-pyuic5 pyuic5 pyuic)
   ENDIF (MSVC)
 
   IF (NOT PYUIC_PROGRAM)
@@ -47,11 +48,11 @@ ENDMACRO(PYQT_WRAP_UI)
 IF(NOT PYRCC_PROGRAM)
   IF (MSVC)
     FIND_PROGRAM(PYRCC_PROGRAM
-      NAMES pyrcc4.exe
+      NAMES pyrcc5.exe
       PATHS $ENV{LIB_DIR}/bin
     )
   ELSE(MSVC)
-    FIND_PROGRAM(PYRCC_PROGRAM pyrcc4 pyrcc)
+    FIND_PROGRAM(PYRCC_PROGRAM pyrcc5 pyrcc)
   ENDIF (MSVC)
 
   IF (NOT PYRCC_PROGRAM)

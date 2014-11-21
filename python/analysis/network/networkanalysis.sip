@@ -3,6 +3,8 @@
         keyword_arguments="Optional")
 
 %Import QtCore/QtCoremod.sip
+
+/*
 %Import core/core.sip
 
 %Include qgsgraph.sip
@@ -13,3 +15,4 @@
 %Include qgsgraphdirector.sip
 %Include qgslinevectorlayerdirector.sip
 %Include qgsgraphanalyzer.sip
+*/

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 #   Copyright (c) 2007, Simon Edwards <simon@simonzone.com>
+#   Copyright (c) 2014, Joshua Arnott <josh@snorfalorpagus.net>
 #    All rights reserved.
 #
 #    Redistribution and use in source and binary forms, with or without
@@ -25,24 +26,34 @@
 #    (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 #    SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
-# FindSIP.py
+# FindPyQt5.py
 # Copyright (c) 2007, Simon Edwards <simon@simonzone.com>
+# Copyright (c) 2014, Joshua Arnott <josh@snorfalorpagus.net>
 # Redistribution and use is allowed according to the terms of the BSD license.
 # For details see the accompanying COPYING-CMAKE-SCRIPTS file.
 
-import sys
+import os
+import PyQt5
+from PyQt5.QtCore import QLibraryInfo
 import sipconfig
 
-sipcfg = sipconfig.Configuration()
-print("sip_version:%06.0x" % sipcfg.sip_version)
-print("sip_version_num:%d" % sipcfg.sip_version)
-print("sip_version_str:%s" % sipcfg.sip_version_str)
-print("sip_bin:%s" % sipcfg.sip_bin)
-try:
-    import PyQt4
-    print("default_sip_dir:%s" % sipcfg.default_sip_dir)
-except ImportError:
-    # PyQt5
-    print("default_sip_dir:%s/Qt5" % sipcfg.default_sip_dir)
-print("sip_inc_dir:%s" % sipcfg.sip_inc_dir)
-print("sip_mod_dir:%s" % sipcfg.sip_mod_dir)
+print("pyqt_version:%06.0x" % PyQt5.QtCore.PYQT_VERSION)
+print("pyqt_version_num:%d" % PyQt5.QtCore.PYQT_VERSION)
+print("pyqt_version_str:%s" % PyQt5.QtCore.PYQT_VERSION_STR)
+
+pyqt_version_tag = ""
+in_t = False
+for item in PyQt5.QtCore.PYQT_CONFIGURATION['sip_flags'].split(' '):
+    if item=="-t":
+        in_t = True
+    elif in_t:
+        if item.startswith("Qt_5"):
+            pyqt_version_tag = item
+    else:
+        in_t = False
+print("pyqt_version_tag:%s" % pyqt_version_tag)
+
+print("pyqt_mod_dir:%s" % os.path.dirname(PyQt5.__file__))
+print("pyqt_sip_dir:%s" % sipconfig.Configuration().default_sip_dir)
+print("pyqt_sip_flags:%s" % PyQt5.QtCore.PYQT_CONFIGURATION['sip_flags'])
+print("pyqt_bin_dir:%s" % QLibraryInfo.location(QLibraryInfo.BinariesPath))
